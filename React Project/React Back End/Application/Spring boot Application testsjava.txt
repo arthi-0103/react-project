@@ -1,0 +1,26 @@
+package net.javaguides.springboots;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import net.javaguides.springboots.model.User;
+
+
+@SpringBootApplication
+class SpringbootBackendApplication<UserRepository> implements CommandLineRunner {
+
+
+
+	@Autowired
+	private UserRepository userRepository;
+	@Override
+	public void run(String... args) throws Exception {
+		this.userRepository.save(new User("Arthi", "Ravi", "arthi@gmail.com"));
+		this.userRepository.save(new User("Gayu", "Swetha", "gayuswetha@gmail.com"));
+		this.userRepository.save(new User("Nirosha", "Mani", "nirosha@gmail.com"));
+		
+		
+	}
+
+}
